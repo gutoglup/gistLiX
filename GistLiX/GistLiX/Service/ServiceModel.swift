@@ -223,7 +223,7 @@ class ServiceModel : ServiceDelegate{
             }
         }
     }
-    
+
     // MARK: - Verifications -
     
 //    static func verifyResult(_ object : Any?) -> (code: Int?, description: String)? {

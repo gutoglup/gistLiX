@@ -9,9 +9,10 @@ target 'GistLiX' do
   pod 'QRCodeReader.swift', '~> 8.0.3'
   pod 'Alamofire'
   pod 'AlamofireNetworkActivityIndicator'
-  pod 'AlamofireImage'
   pod 'SwiftyJSON'
   pod 'Bond'
+  pod 'Kingfisher'
+  pod 'GrowingTextView'
 
   target 'GistLiXTests' do
     inherit! :search_paths

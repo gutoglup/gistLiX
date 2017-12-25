@@ -30,6 +30,7 @@ class GistModel: Model {
     var updated_at = Observable<String?>(nil)
     var forks = Array<Forks>()
     var history = Array<History>()
+    var files = Dictionary<String,File>()
     
     
     class func modelsFromDictionaryArray(array:NSArray) -> [GistModel]
@@ -68,6 +69,7 @@ class GistModel: Model {
         updated_at.value = json["updated_at"].string
         if json["forks"].exists() { forks = Forks.modelsFromDictionaryArray(array: json["forks"].array! as NSArray) }
         if json["history"].exists() { history = History.modelsFromDictionaryArray(array: json["history"].array! as NSArray) }
+        if json["files"].exists() {files = File.modelsFromDictionary(dictionary: json["files"].dictionary!)}
     }
     
     

@@ -4,5 +4,7 @@
 <dict>
 	<key>gistDetail</key>
 	<string>/gists/&lt;id&gt;</string>
+	<key>gistComments</key>
+	<string>/gists/&lt;id&gt;/comments</string>
 </dict>
 </plist>

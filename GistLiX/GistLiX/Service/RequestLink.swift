@@ -12,6 +12,7 @@ import Foundation
 enum RequestLink: String {
     case gistDetail
     case authenticateUser
+    case gistComments
 
 }
 

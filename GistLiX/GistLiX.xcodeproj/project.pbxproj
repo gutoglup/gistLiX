@@ -37,6 +37,10 @@
 		D1F9FCF31FEFE9A200E5AA2B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9FCEE1FEFE9A100E5AA2B /* User.swift */; };
 		D1F9FCF51FF02F3E00E5AA2B /* RequestLinks.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1F9FCF41FF02F3E00E5AA2B /* RequestLinks.plist */; };
 		D1F9FCF81FF0500200E5AA2B /* GistCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9FCF71FF0500200E5AA2B /* GistCells.swift */; };
+		D1F9FCFA1FF12A0800E5AA2B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9FCF91FF12A0800E5AA2B /* File.swift */; };
+		D1F9FCFC1FF1520D00E5AA2B /* GistCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9FCFB1FF1520D00E5AA2B /* GistCommentViewController.swift */; };
+		D1F9FCFE1FF1550A00E5AA2B /* GistCommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9FCFD1FF1550A00E5AA2B /* GistCommentViewModel.swift */; };
+		D1F9FD001FF1678900E5AA2B /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9FCFF1FF1678900E5AA2B /* Comment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +103,10 @@
 		D1F9FCEE1FEFE9A100E5AA2B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D1F9FCF41FF02F3E00E5AA2B /* RequestLinks.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RequestLinks.plist; sourceTree = "<group>"; };
 		D1F9FCF71FF0500200E5AA2B /* GistCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistCells.swift; sourceTree = "<group>"; };
+		D1F9FCF91FF12A0800E5AA2B /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		D1F9FCFB1FF1520D00E5AA2B /* GistCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistCommentViewController.swift; sourceTree = "<group>"; };
+		D1F9FCFD1FF1550A00E5AA2B /* GistCommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistCommentViewModel.swift; sourceTree = "<group>"; };
+		D1F9FCFF1FF1678900E5AA2B /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +228,7 @@
 			children = (
 				D1F9FCBE1FEF2E1F00E5AA2B /* QRCodeViewController.swift */,
 				D1F9FCC91FEFD47A00E5AA2B /* GistViewController.swift */,
+				D1F9FCFB1FF1520D00E5AA2B /* GistCommentViewController.swift */,
 				D1F9FCF71FF0500200E5AA2B /* GistCells.swift */,
 			);
 			path = Views;
@@ -231,6 +240,7 @@
 				D1F9FCC71FEFD37400E5AA2B /* ViewModel.swift */,
 				D1F9FCC31FEF2E7200E5AA2B /* QRCodeViewModel.swift */,
 				D1F9FCCB1FEFD49000E5AA2B /* GistViewModel.swift */,
+				D1F9FCFD1FF1550A00E5AA2B /* GistCommentViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -244,6 +254,8 @@
 				D1F9FCEB1FEFE9A100E5AA2B /* History.swift */,
 				D1F9FCED1FEFE9A100E5AA2B /* Owner.swift */,
 				D1F9FCEE1FEFE9A100E5AA2B /* User.swift */,
+				D1F9FCF91FF12A0800E5AA2B /* File.swift */,
+				D1F9FCFF1FF1678900E5AA2B /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -464,10 +476,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GistLiX/Pods-GistLiX-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityIndicator/AlamofireNetworkActivityIndicator.framework",
 				"${BUILT_PRODUCTS_DIR}/Bond/Bond.framework",
 				"${BUILT_PRODUCTS_DIR}/Differ/Differ.framework",
+				"${BUILT_PRODUCTS_DIR}/GrowingTextView/GrowingTextView.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveKit/ReactiveKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -475,10 +488,11 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityIndicator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bond.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differ.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GrowingTextView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -592,13 +606,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1F9FCD61FEFDDAF00E5AA2B /* Session.swift in Sources */,
+				D1F9FD001FF1678900E5AA2B /* Comment.swift in Sources */,
 				D1F9FCBF1FEF2E1F00E5AA2B /* QRCodeViewController.swift in Sources */,
 				D1F9FCD41FEFDD6E00E5AA2B /* Connection.swift in Sources */,
 				D1F9FCDA1FEFE32400E5AA2B /* Model.swift in Sources */,
 				D1F9FCDF1FEFE83100E5AA2B /* GistModel.swift in Sources */,
+				D1F9FCFE1FF1550A00E5AA2B /* GistCommentViewModel.swift in Sources */,
+				D1F9FCFA1FF12A0800E5AA2B /* File.swift in Sources */,
 				D1F9FCD81FEFDDED00E5AA2B /* RequestLink.swift in Sources */,
 				D1F9FCEF1FEFE9A200E5AA2B /* Forks.swift in Sources */,
 				D1F9FCC41FEF2E7200E5AA2B /* QRCodeViewModel.swift in Sources */,
+				D1F9FCFC1FF1520D00E5AA2B /* GistCommentViewController.swift in Sources */,
 				D1F9FCF81FF0500200E5AA2B /* GistCells.swift in Sources */,
 				D1F9FCCA1FEFD47A00E5AA2B /* GistViewController.swift in Sources */,
 				D1F9FCCC1FEFD49000E5AA2B /* GistViewModel.swift in Sources */,

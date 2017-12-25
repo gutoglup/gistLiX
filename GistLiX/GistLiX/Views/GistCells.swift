@@ -23,8 +23,16 @@ class GistDescriptionCell: UITableViewCell, ReusableView {
     
 }
 
-class GistCodeCell: UITableViewCell, ReusableView {
+class GistFileCell: UITableViewCell, ReusableView {
     
-    @IBOutlet weak var labelCode: UILabel!
+    @IBOutlet weak var buttonFilename: UIButton!
+    
+}
+
+class GistCommentCell: UITableViewCell, ReusableView {
+    
+    @IBOutlet weak var imageUser: UIImageView!
+    @IBOutlet weak var labelUsername: UILabel!
+    @IBOutlet weak var labelComment: UILabel!
     
 }

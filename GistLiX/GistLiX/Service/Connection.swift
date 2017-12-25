@@ -13,7 +13,6 @@ import SwiftyJSON
 
 typealias handlerResponseJSON = (Alamofire.DataResponse<Any>) -> Swift.Void
 typealias handlerResponseObject = (Any) -> Swift.Void
-//typealias handlerResponseImage = (DataResponse<Image>) -> Swift.Void
 typealias handlerDownloadResponseData = (Alamofire.DownloadResponse<Data>) -> Swift.Void
 
 class Connection {
@@ -109,11 +108,11 @@ class Connection {
         
     }
     
-    /// Request Image Method
-    ///
-    /// - Parameters:
-    ///   - url: Request link
-    ///   - imageResponse: Handler to completion
+    // Request Image Method
+    //
+    // - Parameters:
+    //   - url: Request link
+    //   - imageResponse: Handler to completion
 //    static func requestImage(_ url : String, imageResponse: @escaping handlerResponseImage) {
 //
 //        let manager = Session().apiManager()
