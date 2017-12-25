@@ -1,0 +1,6 @@
+framework module Pods_GistLiXTests {
+  umbrella header "Pods-GistLiXTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
