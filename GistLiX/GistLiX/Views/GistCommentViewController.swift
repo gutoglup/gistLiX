@@ -74,7 +74,13 @@ class GistCommentViewController: UIViewController {
 extension GistCommentViewController: GistCommentDelegate {
     
     func didFinishLoading() {
+        self.textViewComment.resignFirstResponder()
         self.tableView.reloadData()
+        self.tableView.scrollToRow(at: IndexPath(row: self.tableView.numberOfRows(inSection: 0) - 1, section: 0), at: .bottom, animated: true)
+    }
+    
+    func loginUser() {
+        self.performSegue(withIdentifier: LoginGithubTableViewController.segueIdentifier, sender: self)
     }
     
 }
@@ -111,6 +117,5 @@ extension GistCommentViewController: UITableViewDataSource {
         
         return cell
     }
-    
 
 }

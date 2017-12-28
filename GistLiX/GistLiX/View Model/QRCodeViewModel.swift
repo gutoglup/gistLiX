@@ -9,7 +9,8 @@
 import UIKit
 
 protocol QRCodeDelegate: class {
-    
+    func showLoggedAccount(username: String)
+    func doLogin()
 }
 
 class QRCodeViewModel: ViewModel {
@@ -18,5 +19,15 @@ class QRCodeViewModel: ViewModel {
     
     var resultQrcode: String = String()
     
+    func showLoggedAccount() {
+        if let username = Authorizantion.username {
+            self.delegate?.showLoggedAccount(username: username)
+        } else {
+            self.delegate?.doLogin()
+        }
+    }
     
+    func logoutAccountAction() {
+        Authorizantion.removeUserCredential()
+    }
 }

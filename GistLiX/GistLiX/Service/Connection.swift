@@ -59,31 +59,18 @@ class Connection {
         
         NetworkActivityIndicatorManager.shared.isEnabled = true
         let manager = Session().apiManager()
-        var requestURL = url
-        var encodingType : ParameterEncoding = JSONEncoding.default
+        manager.session.configuration.urlCache?.removeAllCachedResponses()
         
-//        if let token = ServiceHandler.shared.oAuth2.accessToken {
-//            setHeadersAuthorization(with: token)
-//        } else
-//        if requestURL.contains(RequestLink.token.rawValue) {
-//            setOAuth2Header()
-//            requestURL = setOAuth2URL(url: requestURL)
-//            encodingType = URLEncoding.default
-//        } else {
+        if let userCredential = Authorizantion.userCredential {
+            setHeadersAuthorization(with: userCredential)
+        } else {
             setDefaltHeaders()
-//        }
+        }
         
-        manager.request(requestURL, method: method, parameters: parameters, encoding: encodingType, headers: Connection.sharedConnection.headers).responseJSON { (response) in
+        manager.request(url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: Connection.sharedConnection.headers).responseJSON { (response) in
             
             Connection.getCookies(response: response)
-            
-            print("URL: \(requestURL)\nJSON Response: \(response)\n")
-            
-            
-            if response.response?.statusCode == 403 {
-                NotificationCenter.default.post(name: NSNotification.Name.init("expiredSessionObserver"), object: nil)
-            }
-            
+            print("URL: \(url)\nJSON Response: \(response)\n")
             dataResponseJSON(response)
         }
         
@@ -107,20 +94,6 @@ class Connection {
         }
         
     }
-    
-    // Request Image Method
-    //
-    // - Parameters:
-    //   - url: Request link
-    //   - imageResponse: Handler to completion
-//    static func requestImage(_ url : String, imageResponse: @escaping handlerResponseImage) {
-//
-//        let manager = Session().apiManager()
-//        manager.request(url).responseImage { response in
-//            imageResponse(response)
-//        }
-//
-//    }
     
     static func getCookies(response : DataResponse<Any>) {
         if Connection.sharedConnection.cookies.count == 0 {
@@ -146,32 +119,16 @@ class Connection {
         
     }
     
-    
-    /// Configure Header to authentication
-//    static func setOAuth2Header() {
-//        let headers = [
-//            "content-type": "application/x-www-form-urlencoded",
-//            "authorization": OAuth2.KeysOAuth2.basicAuth,
-//            "grant_type": OAuth2.KeysOAuth2.grantType
-//        ]
-//
-//        Connection.sharedConnection.headers = headers
-//    }
-//
-//    static func setOAuth2URL(url: String) -> String {
-//        return url.remove(string: "/voucher")
-//    }
-    
     /// Configure User Token Acess
     ///
     /// - Parameter token: User Token
-    static func setHeadersAuthorization(with token : String) {
-        let headers = [
-            "acess_token": token,
-            "Content-Type": "application/json"//,
-        ]
-        
-        Connection.sharedConnection.headers = headers
+    static func setHeadersAuthorization(with credential : String) {
+        if Connection.sharedConnection.headers == nil {
+            Connection.sharedConnection.headers = [:]
+        }
+        Connection.sharedConnection.headers?["authorization"] = credential
+        Connection.sharedConnection.headers?["Content-Type"] = "application/json"
+        Connection.sharedConnection.headers?["Accept"] = "application/json;charset=UTF-8"
     }
     
     static func removeSession() {

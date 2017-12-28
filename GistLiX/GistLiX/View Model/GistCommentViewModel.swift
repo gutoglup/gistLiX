@@ -9,9 +9,11 @@
 import UIKit
 import Kingfisher
 import Bond
+import Locksmith
 
 protocol GistCommentDelegate: class {
     func didFinishLoading()
+    func loginUser()
 }
 
 class GistCommentViewModel: ViewModel {
@@ -24,6 +26,38 @@ class GistCommentViewModel: ViewModel {
     
     @objc func postCommentAction() {
         
+        
+        
+        let request = ServiceModel()
+        
+        if isAccountSaved() {
+            if isValidaComment() {
+                request.push(Comment.self, requestLink: .gistListComments, parameters: ["body": comment.value!, "id": resultQrcode]) { (response) in
+                    if response is Comment {
+                        self.loadComments()
+                    }
+                }
+            }
+            
+        }else {
+            self.delegate?.loginUser()
+        }
+        
+        
+    }
+    
+    func isAccountSaved() -> Bool {
+        if ((Authorizantion.userCredential) != nil) {
+            return true
+        }
+        return false
+    }
+    
+    func isValidaComment() -> Bool {
+        if let comment = comment.value {
+            return !comment.isEmpty
+        }
+        return false
     }
     
     func loadComments() {
@@ -32,9 +66,14 @@ class GistCommentViewModel: ViewModel {
         request.fetch(Comment.self, requestLink: .gistComments, parameters: ["id":resultQrcode]) { (response) in
             if let gistComments = response as? [Comment] {
                 self.gistComments = gistComments
+                self.cleanComment()
                 self.delegate?.didFinishLoading()
             }
         }
+    }
+    
+    func cleanComment() {
+        self.comment.value = ""
     }
     
     func countCommentsForGist() -> Int {

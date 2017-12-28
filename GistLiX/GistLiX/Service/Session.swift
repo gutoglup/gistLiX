@@ -26,9 +26,12 @@ class Session {
         configuration.httpAdditionalHeaders = Alamofire.SessionManager.defaultHTTPHeaders
         configuration.timeoutIntervalForRequest = 30
         configuration.timeoutIntervalForResource = 30
+        configuration.urlCache = nil
+        
         let serverTrustPolicy : [String: ServerTrustPolicy] = [
             "https://api.github.com" : .disableEvaluation
         ]
+        
         
         self.manager = SessionManager(configuration: configuration, delegate: SessionDelegate(), serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicy))
         

@@ -6,5 +6,9 @@
 	<string>/gists/&lt;id&gt;</string>
 	<key>gistComments</key>
 	<string>/gists/&lt;id&gt;/comments</string>
+	<key>gitAuthentication</key>
+	<string>/user</string>
+	<key>gistListComments</key>
+	<string>/gists/&lt;id&gt;/comments/page=1</string>
 </dict>
 </plist>

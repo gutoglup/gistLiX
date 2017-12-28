@@ -11,8 +11,9 @@ import Foundation
 // MARK: - Request Link Enum -
 enum RequestLink: String {
     case gistDetail
-    case authenticateUser
+    case gitAuthentication
     case gistComments
+    case gistListComments
 
 }
 

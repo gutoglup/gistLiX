@@ -7,7 +7,9 @@ PODS:
     - ReactiveKit (~> 3.8)
   - Differ (1.0.3)
   - GrowingTextView (0.5.4)
+  - JVFloatLabeledTextField (1.2.1)
   - Kingfisher (4.5.0)
+  - Locksmith (4.0.0)
   - QRCodeReader.swift (8.0.4)
   - ReactiveKit (3.8.2)
   - SwiftyJSON (4.0.0)
@@ -17,7 +19,9 @@ DEPENDENCIES:
   - AlamofireNetworkActivityIndicator
   - Bond
   - GrowingTextView
+  - JVFloatLabeledTextField
   - Kingfisher
+  - Locksmith
   - QRCodeReader.swift (~> 8.0.3)
   - SwiftyJSON
 
@@ -27,11 +31,13 @@ SPEC CHECKSUMS:
   Bond: 2b8c1070674fe8ba908ae11dc4e7607377d17bab
   Differ: 0c220ac75542f5f17f91b1303b85bf07d871ecd7
   GrowingTextView: 0615429affef558cbbb610aa6f9baf19b027fdbe
+  JVFloatLabeledTextField: cfc44e3c4d493b2ed92ede8035e8e89c2912ba64
   Kingfisher: 26ae0473102b77b575da51960c932431e3745407
+  Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   QRCodeReader.swift: 9730cfa7ed5f0dd839765df8cf18d41db20e4081
   ReactiveKit: d2fe54503e0b6d0fa48b2cc6e0b0f99869f13ee6
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 273828d5d005845fce80c020e14b3905f7d48ee5
+PODFILE CHECKSUM: b54439820922195e5f0946a5eb11feae9e089e7d
 
 COCOAPODS: 1.3.1

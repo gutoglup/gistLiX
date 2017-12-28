@@ -11,6 +11,7 @@ import QRCodeReader
 
 class QRCodeViewController: UIViewController {
     
+    @IBOutlet weak var buttonGithub: UIBarButtonItem!
     @IBOutlet weak var qrcodeView: QRCodeReaderView! {
         didSet {
             qrcodeView.setupComponents(showCancelButton: false, showSwitchCameraButton: false, showTorchButton: false, showOverlayView: false, reader: reader)
@@ -38,7 +39,6 @@ class QRCodeViewController: UIViewController {
         super.viewDidLoad()
 
         viewModel.delegate = self
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -51,6 +51,11 @@ class QRCodeViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    
+    @IBAction func githubBarButtonItem(_ sender: Any) {
+        viewModel.showLoggedAccount()
     }
     
     // MARK: - Setup View -
@@ -78,5 +83,20 @@ class QRCodeViewController: UIViewController {
 }
 
 extension QRCodeViewController: QRCodeDelegate {
+    func showLoggedAccount(username: String) {
     
+        let alert = UIAlertController(title: "Account", message: "Do you want to logout of \(username) account?", preferredStyle: .alert)
+        let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { (action) in
+            self.viewModel.logoutAccountAction()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(logoutAction)
+        alert.addAction(cancelAction)
+    
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func doLogin() {
+        self.performSegue(withIdentifier: LoginGithubTableViewController.segueIdentifier, sender: self)
+    }
 }

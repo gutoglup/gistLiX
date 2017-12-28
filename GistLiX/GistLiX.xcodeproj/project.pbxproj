@@ -10,6 +10,9 @@
 		6859EB49F3E8BFDE20724984 /* Pods_GistLiXUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9216FA4E0DE6060766F602CD /* Pods_GistLiXUITests.framework */; };
 		803AC934A7FB2CB2262DF967 /* Pods_GistLiX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5252D20E3826CB0F1311E5A7 /* Pods_GistLiX.framework */; };
 		9D4F6A3765A15A2DBA9BE575 /* Pods_GistLiXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A01A0E36D010F9A6630AE565 /* Pods_GistLiXTests.framework */; };
+		D120AE871FF4570200BE81C0 /* LoginGithubTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120AE861FF4570200BE81C0 /* LoginGithubTableViewController.swift */; };
+		D120AE891FF459C400BE81C0 /* LoginGithubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D120AE881FF459C400BE81C0 /* LoginGithubViewModel.swift */; };
+		D1DB53C91FF315F3008CF11F /* Authorizantion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB53C81FF315F3008CF11F /* Authorizantion.swift */; };
 		D1F9FC8D1FEF262D00E5AA2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9FC8C1FEF262D00E5AA2B /* AppDelegate.swift */; };
 		D1F9FC921FEF262D00E5AA2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1F9FC901FEF262D00E5AA2B /* Main.storyboard */; };
 		D1F9FC941FEF262D00E5AA2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1F9FC931FEF262D00E5AA2B /* Assets.xcassets */; };
@@ -70,6 +73,9 @@
 		A01A0E36D010F9A6630AE565 /* Pods_GistLiXTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GistLiXTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8136AF3431B57848EF22CDB /* Pods-GistLiX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GistLiX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GistLiX/Pods-GistLiX.debug.xcconfig"; sourceTree = "<group>"; };
 		CBA6FCBF268DBAEFD4CE5611 /* Pods-GistLiXTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GistLiXTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GistLiXTests/Pods-GistLiXTests.release.xcconfig"; sourceTree = "<group>"; };
+		D120AE861FF4570200BE81C0 /* LoginGithubTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginGithubTableViewController.swift; sourceTree = "<group>"; };
+		D120AE881FF459C400BE81C0 /* LoginGithubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginGithubViewModel.swift; sourceTree = "<group>"; };
+		D1DB53C81FF315F3008CF11F /* Authorizantion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorizantion.swift; sourceTree = "<group>"; };
 		D1F9FC891FEF262D00E5AA2B /* GistLiX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GistLiX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1F9FC8C1FEF262D00E5AA2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1F9FC911FEF262D00E5AA2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -229,6 +235,7 @@
 				D1F9FCBE1FEF2E1F00E5AA2B /* QRCodeViewController.swift */,
 				D1F9FCC91FEFD47A00E5AA2B /* GistViewController.swift */,
 				D1F9FCFB1FF1520D00E5AA2B /* GistCommentViewController.swift */,
+				D120AE861FF4570200BE81C0 /* LoginGithubTableViewController.swift */,
 				D1F9FCF71FF0500200E5AA2B /* GistCells.swift */,
 			);
 			path = Views;
@@ -241,6 +248,7 @@
 				D1F9FCC31FEF2E7200E5AA2B /* QRCodeViewModel.swift */,
 				D1F9FCCB1FEFD49000E5AA2B /* GistViewModel.swift */,
 				D1F9FCFD1FF1550A00E5AA2B /* GistCommentViewModel.swift */,
+				D120AE881FF459C400BE81C0 /* LoginGithubViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -275,6 +283,7 @@
 				D1F9FCD71FEFDDED00E5AA2B /* RequestLink.swift */,
 				D1F9FCD31FEFDD6E00E5AA2B /* Connection.swift */,
 				D1F9FCD51FEFDDAF00E5AA2B /* Session.swift */,
+				D1DB53C81FF315F3008CF11F /* Authorizantion.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -480,7 +489,9 @@
 				"${BUILT_PRODUCTS_DIR}/Bond/Bond.framework",
 				"${BUILT_PRODUCTS_DIR}/Differ/Differ.framework",
 				"${BUILT_PRODUCTS_DIR}/GrowingTextView/GrowingTextView.framework",
+				"${BUILT_PRODUCTS_DIR}/JVFloatLabeledTextField/JVFloatLabeledTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveKit/ReactiveKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -492,7 +503,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bond.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differ.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GrowingTextView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JVFloatLabeledTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -619,13 +632,16 @@
 				D1F9FCFC1FF1520D00E5AA2B /* GistCommentViewController.swift in Sources */,
 				D1F9FCF81FF0500200E5AA2B /* GistCells.swift in Sources */,
 				D1F9FCCA1FEFD47A00E5AA2B /* GistViewController.swift in Sources */,
+				D1DB53C91FF315F3008CF11F /* Authorizantion.swift in Sources */,
 				D1F9FCCC1FEFD49000E5AA2B /* GistViewModel.swift in Sources */,
 				D1F9FCF01FEFE9A200E5AA2B /* History.swift in Sources */,
 				D1F9FCDC1FEFE6AA00E5AA2B /* FileManager.swift in Sources */,
+				D120AE871FF4570200BE81C0 /* LoginGithubTableViewController.swift in Sources */,
 				D1F9FCF21FEFE9A200E5AA2B /* Owner.swift in Sources */,
 				D1F9FCCF1FEFD73000E5AA2B /* GenericExtensions.swift in Sources */,
 				D1F9FCC81FEFD37400E5AA2B /* ViewModel.swift in Sources */,
 				D1F9FC8D1FEF262D00E5AA2B /* AppDelegate.swift in Sources */,
+				D120AE891FF459C400BE81C0 /* LoginGithubViewModel.swift in Sources */,
 				D1F9FCD21FEFDD4400E5AA2B /* ServiceModel.swift in Sources */,
 				D1F9FCF31FEFE9A200E5AA2B /* User.swift in Sources */,
 			);

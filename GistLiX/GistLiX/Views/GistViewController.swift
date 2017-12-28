@@ -17,32 +17,20 @@ class GistViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
-        viewModel.loadGist()
         
-        addActions()
         tableView.estimatedRowHeight = 64
         tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        viewModel.loadGist()
         
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func addActions() {
-        
-    }
-    
-    func addBindings() {
-//        viewModel.gistModel.owner.login.bind(to: labelUsername.reactive.text)
-//        viewModel.gistModel.comments.map({"\($0 ?? 0) Comments"}).bind(to: buttonComments.reactive.title)
-//        viewModel.gistModel.description.bind(to: labelDescription.reactive.text)
-        
     }
     
     // MARK: - TableView Delegate -
@@ -67,7 +55,7 @@ class GistViewController: UITableViewController {
                 let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as GistUserCell
                 cell.labelUsername.text = viewModel.ursernameForGist()
                 viewModel.userImageForGist(imageView: cell.imageUser)
-                cell.buttonComment.titleLabel?.text = viewModel.commentsForGist()
+                cell.buttonComment.setTitle(viewModel.commentsForGist(), for: .normal)
                 viewModel.add(action: #selector(viewModel.showCommentsAction), view: cell.buttonComment)
                 return cell
             case 1:
@@ -78,7 +66,8 @@ class GistViewController: UITableViewController {
             }
         case 1:
             let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as GistFileCell
-            cell.buttonFilename.titleLabel?.text = viewModel.filenameForGist(index: indexPath.row)
+            cell.buttonFilename.setTitle(viewModel.filenameForGist(index: indexPath.row), for: .normal)
+            
             return cell
             
         default: break
