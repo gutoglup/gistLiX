@@ -25,9 +25,7 @@ class GistCommentViewModel: ViewModel {
     var comment = Observable<String?>("")
     
     @objc func postCommentAction() {
-        
-        
-        
+
         let request = ServiceModel()
         
         if isAccountSaved() {
